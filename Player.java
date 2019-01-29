@@ -16,8 +16,9 @@ public class Player extends GameObject {
 
     public Player(int x, int y, ID id) {
         super(x, y, id);
-        //setX(100);
-        velX = 1;
+        
+        //velX = 1; //remove comment later
+        //velY = 1; //remove comment later 
     }
 
     @Override

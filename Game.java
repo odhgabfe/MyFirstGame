@@ -19,11 +19,13 @@ public class Game extends Canvas implements Runnable {
     
     public Game() {
         //constructor
-        handler = new Handler();
+        handler = new Handler(); //handler called
         
-        new Window(WIDTH, HEIGHT, "GAME WINDOW!!", this);
+        this.addKeyListener(new KeyInput()); //listens to key input
         
-        handler.addObject(new Player(100, 100, ID.Player));
+        new Window(WIDTH, HEIGHT, "GAME WINDOW!!", this); //window created
+        
+        handler.addObject(new Player(100, 100, ID.Player)); //player object created
         
     }
     
@@ -70,7 +72,7 @@ public class Game extends Canvas implements Runnable {
             //end if
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                System.out.println("FPS: " + frames);
+                //System.out.println("FPS: " + frames); //remove comment later
                 frames = 0; //AH I MISSED THIS I THINK
                 //RESET
             }//end if
