@@ -10,5 +10,7 @@ package com.tutorial.main;
  * @author user
  */
 public enum ID {
-    Player(), Enemy();
+    Player(), 
+    Player2(),
+    Enemy();
 }
