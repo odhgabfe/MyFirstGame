@@ -14,6 +14,13 @@ public class BasicEnemy extends GameObject {
     public void tick() {
         x += velX;
         y += velY;
+
+        if (y <= 0 || y >= Game.HEIGHT - 40) { //-40 for weird offset 
+            velY *= -1; //flip y direction
+        }
+        if (x <= 0 || x >= Game.WIDTH - 20) {
+            velX *= -1; //flip y direction
+        }
     }
 
     public void render(Graphics g) {
