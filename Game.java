@@ -18,6 +18,7 @@ public class Game extends Canvas implements Runnable {
 
     private Handler handler;
     private Random r;
+
     public Game() {
         //constructor
         handler = new Handler(); //handler called
@@ -28,8 +29,8 @@ public class Game extends Canvas implements Runnable {
 
         handler.addObject(new Player(100, 100, ID.Player)); //player object created
         //handler.addObject(new Player(200, 200, ID.Player2)); //player2
-        for (int i=0; i<10; i++){
-        handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy)); //enemy object created
+        for (int i = 0; i < 10; i++) {
+            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy)); //enemy object created
         }
     }
 
@@ -105,6 +106,16 @@ public class Game extends Canvas implements Runnable {
 
         g.dispose();
         bs.show();
+    }
+
+    public static int clamp(int range, int min, int max) {
+        if (range>= max) {
+            return range= max; //set upper bound on var
+        } else if (range<= min) {
+            return range= min; //set lower bound on var
+        } else {
+            return range; //if it is within bounds return as is.
+        }
     }
 
     public static void main(String[] args) {

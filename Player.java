@@ -25,6 +25,9 @@ public class Player extends GameObject {
     public void tick() {
         x += velX;
         y += velY;
+        
+        x = Game.clamp(x, 5, Game.WIDTH - 40); //OFFSET +5, -40 BECAUSE OF WEIRD BEHAVIOUR
+        y = Game.clamp(y, 5, Game.HEIGHT - 60); //SAME OFFSER
     }
 
     @Override

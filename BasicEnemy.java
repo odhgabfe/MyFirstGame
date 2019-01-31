@@ -7,7 +7,7 @@ public class BasicEnemy extends GameObject {
 
     public BasicEnemy(int x, int y, ID id) {
         super(x, y, id);
-        velX = 3;
+        velX = 3 ;
         velY = 3;
     }
 
@@ -24,7 +24,7 @@ public class BasicEnemy extends GameObject {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.red);
+        g.setColor(Color.WHITE);
         g.fillRect(x, y, 16, 16);
     }
 
