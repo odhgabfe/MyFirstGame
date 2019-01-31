@@ -13,7 +13,7 @@ public class KeyInput extends KeyAdapter {
 
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        System.out.println(key);
+        //System.out.println(key);
         
         for (int i=0; i<handler.object.size(); i++){
             GameObject tempObject = handler.object.get(i);
@@ -34,21 +34,7 @@ public class KeyInput extends KeyAdapter {
                 }
             }
             
-            if(tempObject.getId() == ID.Player2){
-                //key events for Player1 
-                if (key == KeyEvent.VK_UP){ //UP
-                    tempObject.setY(tempObject.getY()-5);
-                }
-                if (key == KeyEvent.VK_DOWN){ //UP
-                    tempObject.setY(tempObject.getY()+5);
-                }
-                if (key == KeyEvent.VK_LEFT){ //UP
-                    tempObject.setX(tempObject.getX()-5);
-                }
-                if (key == KeyEvent.VK_RIGHT){ //UP
-                    tempObject.setX(tempObject.getX()+5);
-                }
-            }
+           
         }
     }
 
