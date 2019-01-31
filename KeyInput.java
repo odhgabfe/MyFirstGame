@@ -20,17 +20,18 @@ public class KeyInput extends KeyAdapter {
             
             if(tempObject.getId() == ID.Player){
                 //key events for Player1 
+                int pixelDelta = 7; 
                 if (key == KeyEvent.VK_W){ //UP
-                    tempObject.setY(tempObject.getY()-5);
+                    tempObject.setY(tempObject.getY()-pixelDelta); 
                 }
                 if (key == KeyEvent.VK_S){ //down
-                    tempObject.setY(tempObject.getY()+5);
+                    tempObject.setY(tempObject.getY()+pixelDelta);
                 }
                 if (key == KeyEvent.VK_A){ //left
-                    tempObject.setX(tempObject.getX()-5);
+                    tempObject.setX(tempObject.getX()-pixelDelta);
                 }
                 if (key == KeyEvent.VK_D){ //right
-                    tempObject.setX(tempObject.getX()+5);
+                    tempObject.setX(tempObject.getX()+pixelDelta);
                 }
             }
             
