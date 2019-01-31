@@ -18,6 +18,7 @@ public class Game extends Canvas implements Runnable {
 
     private Handler handler;
     private Random r;
+    private HUD hud;
 
     public Game() {
         //constructor
@@ -31,7 +32,10 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Player(200, 200, ID.Player2)); //player2
         for (int i = 0; i < 10; i++) {
             handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy)); //enemy object created
-        }
+        } // enemies
+
+        hud = new HUD();
+
     }
 
     public synchronized void start() {
@@ -51,6 +55,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void run() {
+        this.requestFocus(); //don't need to click on window to start controlling it
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -88,6 +93,7 @@ public class Game extends Canvas implements Runnable {
 
     private void tick() {
         handler.tick();
+        hud.tick(); //hud needs a separate tick to be called it is implemented separately
     }
 
     private void render() {
@@ -99,20 +105,21 @@ public class Game extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
 
-        g.setColor(Color.darkGray);
+        g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         handler.render(g);
+        hud.render(g);
 
         g.dispose();
         bs.show();
     }
 
     public static int clamp(int range, int min, int max) {
-        if (range>= max) {
-            return range= max; //set upper bound on var
-        } else if (range<= min) {
-            return range= min; //set lower bound on var
+        if (range >= max) {
+            return range = max; //set upper bound on var
+        } else if (range <= min) {
+            return range = min; //set lower bound on var
         } else {
             return range; //if it is within bounds return as is.
         }
