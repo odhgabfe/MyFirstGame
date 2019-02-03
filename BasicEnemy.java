@@ -2,12 +2,13 @@ package com.tutorial.main;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class BasicEnemy extends GameObject {
 
     public BasicEnemy(int x, int y, ID id) {
         super(x, y, id);
-        velX = 3 ;
+        velX = 3;
         velY = 3;
     }
 
@@ -26,6 +27,10 @@ public class BasicEnemy extends GameObject {
     public void render(Graphics g) {
         g.setColor(Color.GREEN);
         g.fill3DRect(x, y, 16, 16, true);
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, 16, 16);
     }
 
 }

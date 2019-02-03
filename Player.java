@@ -5,8 +5,12 @@
  */
 package com.tutorial.main;
 
+
 import java.awt.Color;
 import java.awt.Graphics;
+//import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.util.Random;
 
 /**
  *
@@ -14,9 +18,13 @@ import java.awt.Graphics;
  */
 public class Player extends GameObject {
 
-    public Player(int x, int y, ID id) {
+    Random r = new Random();
+    Handler handler;
+
+    public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
-        
+        this.handler = handler;
+
         //velX = 1; //remove comment later
         //velY = 1; //remove comment later 
     }
@@ -25,18 +33,37 @@ public class Player extends GameObject {
     public void tick() {
         x += velX;
         y += velY;
-        
+
         x = Game.clamp(x, 5, Game.WIDTH - 40); //OFFSET +5, -40 BECAUSE OF WEIRD BEHAVIOUR
         y = Game.clamp(y, 5, Game.HEIGHT - 60); //SAME OFFSER
+
+        collision();
+    }
+
+    public void collision() {
+        for (int i = 0; i < handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
+
+            if (tempObject.id == ID.BasicEnemy) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    HUD.HEALTH -= 1;
+                    
+                }
+            }
+
+        }
     }
 
     @Override
     public void render(Graphics g) {
-        if(id == ID.Player){
-        g.setColor(Color.ORANGE);
-        } else {g.setColor(Color.red);}
-        
+
+        g.setColor(Color.WHITE);
         g.fillRect(x, y, 32, 32);
+
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, 32, 32);
     }
 
 }
