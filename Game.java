@@ -1,7 +1,7 @@
 package com.tutorial.main;
 
-import java.awt.Canvas;
-import java.awt.Color;
+import java.awt.Canvas; //AWT is Abstract Window Component
+import java.awt.Color;  //AWT is PLATFORM DEPENDENT
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
@@ -31,7 +31,7 @@ public class Game extends Canvas implements Runnable {
         handler.addObject(new Player(100, 100, ID.Player, handler)); //player object created
         //handler.addObject(new Player(200, 200, ID.Player2)); //player2
         for (int i = 0; i < 5; i++) {
-            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy)); //enemy object created
+            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler)); //enemy object created
         } // enemies
 
         hud = new HUD();

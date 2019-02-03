@@ -20,7 +20,7 @@ public class KeyInput extends KeyAdapter {
             
             if(tempObject.getId() == ID.Player){
                 //key events for Player1 
-                int pixelDelta = 7; 
+                int pixelDelta = 12; 
                 if (key == KeyEvent.VK_W){ //UP
                     tempObject.setY(tempObject.getY()-pixelDelta); 
                 }

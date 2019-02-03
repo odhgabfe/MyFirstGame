@@ -5,7 +5,6 @@
  */
 package com.tutorial.main;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
 //import java.awt.Graphics2D;
@@ -33,6 +32,7 @@ public class Player extends GameObject {
     public void tick() {
         x += velX;
         y += velY;
+        handler.addObject(new Trail(x, y, ID.Trail, Color.white, 32, 32, 0.08f, handler));
 
         x = Game.clamp(x, 5, Game.WIDTH - 40); //OFFSET +5, -40 BECAUSE OF WEIRD BEHAVIOUR
         y = Game.clamp(y, 5, Game.HEIGHT - 60); //SAME OFFSER
@@ -44,10 +44,10 @@ public class Player extends GameObject {
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
 
-            if (tempObject.id == ID.BasicEnemy) {
+            if (tempObject.getId() == ID.BasicEnemy) {
                 if (getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 1;
-                    
+
                 }
             }
 
