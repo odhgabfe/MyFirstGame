@@ -28,13 +28,16 @@ public class Game extends Canvas implements Runnable {
 
         new Window(WIDTH, HEIGHT, "GAME WINDOW!!", this); //window created
         hud = new HUD();
-        spawner = new Spawn(handler, hud);
         r = new Random();
 
         handler.addObject(new Player(100, 100, ID.Player, handler)); //player object created
+
+        handler.addObject(new BasicEnemy(r.nextInt(WIDTH) - 150, r.nextInt(HEIGHT) - 150, ID.BasicEnemy, handler)); //enemy object created
+        // -150 offset so enemy spawns well within game area
+        //BASIC SETUP DONE
         
-        handler.addObject(new BasicEnemy(r.nextInt(WIDTH) - r.nextInt(50), r.nextInt(HEIGHT) - r.nextInt(50), ID.BasicEnemy, handler)); //enemy object created
-      
+        //SPAWNER LOGIC HERE--------
+        spawner = new Spawn(handler, hud);
 
     }
 
