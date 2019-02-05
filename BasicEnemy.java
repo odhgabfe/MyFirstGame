@@ -26,11 +26,11 @@ public class BasicEnemy extends GameObject {
             velX *= -1; //flip y direction
         }
 
-        handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.04f, handler));
+        handler.addObject(new Trail(x, y, ID.Trail, Color.ORANGE, 16, 16, 0.04f, handler));
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.GREEN);
+        g.setColor(Color.ORANGE);
         g.fill3DRect(x, y, 16, 16, true);
     }
 

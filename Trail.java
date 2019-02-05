@@ -33,9 +33,9 @@ public class Trail extends GameObject {
 
     
     public void tick() {
-        if (alpha > life) {
+        if (alpha > life) { //life of the trail
             alpha -= (life - 0.001f);
-        } else {
+        } else {            //this is backwards bc big to small value
             handler.removeObject(this);
         }
     }
