@@ -18,17 +18,23 @@ public class Spawn {
         scoreKeep++; //increments with score variable
 
         if (scoreKeep >= 250) {
-            scoreKeep = 0; //reset every 200 points to level up + spawn an enemy
+            scoreKeep = 0; //reset every 250 points to level up + spawn an enemy
             hud.setLevel(hud.getLevel() + 1);
 
             handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 100), 
                     r.nextInt(Game.HEIGHT - 100),
                     ID.BasicEnemy, handler));
             
-            if (hud.getLevel() == 5){
+            if (hud.getLevel() == 3){
                  handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 100), 
                     r.nextInt(Game.HEIGHT - 100),
                     ID.FastEnemy, handler));
+            }
+            
+            if (hud.getLevel() == 5){
+                 handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 100), 
+                    r.nextInt(Game.HEIGHT - 100),
+                    ID.SmartEnemy, handler));
             }
 
         }
